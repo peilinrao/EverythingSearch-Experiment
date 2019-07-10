@@ -9,40 +9,48 @@ public class relation {
 
 
     }
+    relation jump(int val){
+        return null;
+    }
 
     void cols(){
 
     }
 
-    void M(double value){
+    int M(int value){
+        return 0;
 
+    }
+
+    int Mtov(int M){
+        return 0;
     }
 
     void reset(){
 
     }
 
-    void curr(){
-
-    }
-
-    void subRelation(){
-
+    relation subRelation(){
+        return null;
     }
 
     void next(){
 
     }
-    void empty(){
-
+    boolean empty(){
+        return true;
     }
 
     int numVals(){
         return 0;
     }
 
-    void C(){
+    int C(){
+        return 0;
+    }
 
+    int curr(){
+        return 0;
     }
 
     void main(String[] args){

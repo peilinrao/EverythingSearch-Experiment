@@ -33,7 +33,7 @@ public class relation {
     relation subRelation(){
         return null;
     }
-
+    relation first() {return null;}
     void next(){
 
     }

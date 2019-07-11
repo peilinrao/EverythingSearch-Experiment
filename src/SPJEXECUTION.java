@@ -12,6 +12,7 @@ public class SPJEXECUTION {
     List<Integer> F;
     List<relation> T;
     List<Integer> result;
+    int val;
     //Type about result is illy defined for now.
     //It should be a list
 
@@ -34,17 +35,17 @@ public class SPJEXECUTION {
             }
         }
 
-        int val = this.T.get(index).C();
-        if (this.F.contains(val)){
-            this.T.get(index).jump(val);
-            if (this.T.get(index).curr() == val) {
+        this.val = this.T.get(index).C();
+        if (this.F.contains(this.val)){
+            this.T.get(index).jump(this.val);
+            if (this.T.get(index).curr() == this.val) {
                 List<Integer> F_d = this.F;
 
                 ListIterator<Integer> iterator = F_d.listIterator();
                 while (iterator.hasNext()) {
                     Integer next = iterator.next();
                     if (next.equals(this.T.get(index).C())) {
-                        iterator.set(val);
+                        iterator.set(this.val);
                     }
                 }
                 int TiCinX = 0;
@@ -69,7 +70,7 @@ public class SPJEXECUTION {
                     //The following line is not complete
                     //because there should be a pointer from M(location) to v(column)
                     //For now i call it Mtov but it can be simplified
-                    this.result.add(this.T.get(index).Mtov(this.T.get(index).M(val)));
+                    this.result.add(this.T.get(index).Mtov(this.T.get(index).M(this.val)));
                 }
                 return this.result;
             }else{
@@ -117,7 +118,46 @@ public class SPJEXECUTION {
             // Add initialization
             while(!this.T.get(index).empty()){
                 if (this.T.get(index).curr() != -1){
+                    List<Integer> tempF = this.F;
 
+                    this.T.get(index).reset();
+                    while(this.T.get(index)!=null){
+                        if (this.T.get(index).C() == Til.C()){
+                            tempF.remove(this.T.get(index).C());
+                        }
+                        ListIterator<Integer> newFIterator = tempF.listIterator();
+
+                        while(newFIterator.hasNext()) {
+                            if (newFIterator.next() == this.T.get(index).C()){
+                                newFIterator.set(this.val);
+                            }
+                        }
+                        this.T.get(index).next();
+                    }
+
+                    List<relation> tempT = this.T;
+                    tempT.get(index).reset();
+                    while(tempT.get(index)!=null){
+                        tempT.set(index,tempT.get(index).subRelation());
+                        tempT.get(index).next();
+                    }
+
+                    List<Integer> tempX = this.X;
+                    this.T.get(index).reset();
+                    while(this.T.get(index)!=null){
+                        if(tempX.contains(this.T.get(index).C())) {
+                            tempX.remove(this.T.get(index).C());
+                        }
+                        this.T.get(index).next();
+                    }
+                    SPJEXECUTION newSPJ = new SPJEXECUTION(tempX, tempF, tempT);
+                    List<Integer> subResult = newSPJ.getResult();
+                    this.T.get(index).reset();
+                    while(this.T.get(index)!=null){
+                        subResult.add(this.T.get(index).C());
+                        this.T.get(index).next();
+                    }
+                    result.addAll(subResult);
                 }
                 // Getting Til
                 this.T.get(index).reset();
@@ -145,6 +185,37 @@ public class SPJEXECUTION {
             }
         }
 
+        while(!this.T.get(index).empty()){
+            this.val = this.T.get(index).curr();
+            List<Integer> X_new;
+            List<Integer> F_new;
+            List<relation> T_new;
+
+            F_new = this.F;
+            if( F_new.contains(this.T.get(index).C())){
+                F_new.remove(this.T.get(index).C());
+            }
+            T_new = this.T;
+            ListIterator<relation> iterator_T_new = T_new.listIterator();
+            while (iterator_T_new.hasNext()) {
+                relation next = iterator_T_new.next();
+                if (next.equals(this.T.get(index))) {
+                    iterator_T_new.set(this.T.get(index).subRelation());
+                }
+            }
+            X_new = this.X;
+            if(X_new.contains(this.T.get(index))){
+                X_new.remove(this.T.get(index));
+            }
+
+            SPJEXECUTION SPJ_new = new SPJEXECUTION(X_new, F_new, T_new);
+            List<Integer> subResult = SPJ_new.getResult();
+            if (this.X.contains(this.T.get(index).first())){
+                subResult.add(this.val);
+            }
+            result.addAll(subResult);
+            return result;
+        }
 
 
 

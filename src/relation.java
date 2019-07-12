@@ -17,15 +17,6 @@ public class relation {
 
     }
 
-    int M(int value){
-        return 0;
-
-    }
-
-    int Mtov(int M){
-        return 0;
-    }
-
     void reset(){
 
     }

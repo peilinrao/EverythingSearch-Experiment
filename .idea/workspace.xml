@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf17e998-401b-434f-a313-279929a2edaa" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CSVtoBinary.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/structF.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SPJEXECUTION.java" afterPath="$PROJECT_DIR$/src/SPJEXECUTION.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/relation.java" afterPath="$PROJECT_DIR$/src/relation.java" />
     </list>
@@ -16,28 +19,60 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="relation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="relation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/relation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding>
-                <element signature="e#151#152#0" expanded="true" />
-                <element signature="e#178#179#0" expanded="true" />
+                <element signature="method#relation#0;class#relation#0" expanded="false" />
+                <element signature="e#218#219#0" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
+                <element signature="method#reset#0;class#relation#0" expanded="false" />
+                <element signature="method#next#0;class#relation#0" expanded="false" />
+                <element signature="e#537#538#0" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#732#733#0" expanded="true" />
+                <element signature="e#759#760#0" expanded="true" />
+                <element signature="e#787#788#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SPJEXECUTION.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="structF.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/structF.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="717">
+              <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+              <folding>
+                <element signature="e#1119#1120#0" expanded="true" />
+                <element signature="e#1147#1148#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SPJEXECUTION.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SPJEXECUTION.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="217" column="9" lean-forward="false" selection-start-line="217" selection-start-column="9" selection-end-line="217" selection-end-column="9" />
+            <state relative-caret-position="218">
+              <caret line="149" column="54" lean-forward="false" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CSVtoBinary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CSVtoBinary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4288">
+              <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +105,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/experiment.java" />
-        <option value="$PROJECT_DIR$/src/relation.java" />
+        <option value="$PROJECT_DIR$/src/structF.java" />
         <option value="$PROJECT_DIR$/src/SPJEXECUTION.java" />
+        <option value="$PROJECT_DIR$/src/relation.java" />
       </list>
     </option>
   </component>
@@ -158,6 +194,14 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="FullScreen" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -712,15 +756,15 @@
       <workItem from="1562624036226" duration="215000" />
       <workItem from="1562624422271" duration="20000" />
       <workItem from="1562624495922" duration="14774000" />
-      <workItem from="1562772030890" duration="5719000" />
+      <workItem from="1562772030890" duration="18111000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20728000" />
+    <option name="totallyTimeSpent" value="33120000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -775,8 +819,17 @@
         <state relative-caret-position="228">
           <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#178#179#0" expanded="true" />
+            <element signature="method#relation#0;class#relation#0" expanded="false" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="method#reset#0;class#relation#0" expanded="false" />
+            <element signature="method#next#0;class#relation#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -797,8 +850,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#178#179#0" expanded="true" />
+            <element signature="method#relation#0;class#relation#0" expanded="false" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="method#reset#0;class#relation#0" expanded="false" />
+            <element signature="method#next#0;class#relation#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -808,30 +870,67 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#178#179#0" expanded="true" />
+            <element signature="method#relation#0;class#relation#0" expanded="false" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="method#reset#0;class#relation#0" expanded="false" />
+            <element signature="method#next#0;class#relation#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/relation.java">
+    <entry file="file://$PROJECT_DIR$/src/CSVtoBinary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="-4288">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/structF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="55" column="5" lean-forward="false" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
           <folding>
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#178#179#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SPJEXECUTION.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="217" column="9" lean-forward="false" selection-start-line="217" selection-start-column="9" selection-end-line="217" selection-end-column="9" />
+        <state relative-caret-position="218">
+          <caret line="149" column="54" lean-forward="false" selection-start-line="149" selection-start-column="54" selection-end-line="149" selection-end-column="54" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/relation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding>
+            <element signature="method#relation#0;class#relation#0" expanded="false" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+            <element signature="method#reset#0;class#relation#0" expanded="false" />
+            <element signature="method#next#0;class#relation#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
         </state>
       </provider>

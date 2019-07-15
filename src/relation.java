@@ -2,7 +2,6 @@
  * Created by Peilin on 7/8/19.
  */
 
-//A place holder need to be filled
 public class relation {
 
     relation(){
@@ -12,9 +11,12 @@ public class relation {
     relation jump(int val){
         return null;
     }
+    relation jump(String str){
+        return null;
+    }
 
-    void cols(){
-
+    int cols(){
+        return 0;
     }
 
     void reset(){
@@ -40,11 +42,21 @@ public class relation {
         return 0;
     }
 
+    String getName(){
+        return null;
+    }
+
     int curr(){
         return 0;
     }
+    String currStr(){return null;}
 
-    void main(String[] args){
-        System.out.println("Hey");
+    //Return the nth col in the block that cursor points to.
+    String getDataStr(int n){
+        return null;
+    }
+
+    int getDataInt(int n){
+        return 0;
     }
 }

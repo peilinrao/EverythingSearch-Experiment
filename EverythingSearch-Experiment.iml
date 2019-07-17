@@ -7,5 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lucene-queryparser-8.1.1" level="project" />
+    <orderEntry type="library" name="lucene-demo-8.1.1" level="project" />
+    <orderEntry type="library" name="lucene-analyzers-common-8.1.1" level="project" />
+    <orderEntry type="library" name="lucene-core-8.1.1" level="project" />
+    <orderEntry type="library" name="lucene-codecs-8.1.1" level="project" />
   </component>
 </module>

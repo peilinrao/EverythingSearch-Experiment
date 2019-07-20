@@ -2,6 +2,9 @@
  * Created by Peilin on 7/16/19.
  */
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.apache.commons.io.FileUtils;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -20,30 +23,92 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.store.*;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.Iterator;
+
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.index.CorruptIndexException;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+
 
 public class luceneQkd {
+
+    public static final String CONTENT = "contents";
+    public static final String filename = "./tables/D.csv";
+    public static final String field = "dId";
+    public static final String query = "20";
+    public static final String FILE_PATH = "./index";
+    public static final Path PATH = Paths.get(FILE_PATH);
+    public static final int MAX_SEARCH = 10;
+
+
     public static void main(String[] args) throws IOException, ParseException {
         // 0. Specify the analyzer for tokenizing text.
         //    The same analyzer should be used for indexing and searching
         StandardAnalyzer analyzer = new StandardAnalyzer();
         // 1. create the index
-        Directory index = new RAMDirectory();
+        Directory index = new SimpleFSDirectory(PATH);
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
-
         IndexWriter w = new IndexWriter(index, config);
-        addDoc(w, "Lucene in Action", "193398817");
-        addDoc(w, "Lucene for Dummies", "55320055Z");
-        addDoc(w, "Managing Gigabytes", "55063554A");
-        addDoc(w, "The Art of Computer Science", "9900333X");
+
+        // read D.csv
+        String csvFile = filename;
+        BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+        boolean flagFirstTime = true;
+
+        try {
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+                if(flagFirstTime){
+                    flagFirstTime = false;
+                    continue;
+                }
+                // use comma as separator
+                String[] temp = line.split(cvsSplitBy);
+                //System.out.println(temp[0]+" "+temp[1]+" "+temp[2]+" "+temp[3]);
+                addD(w, temp[0].replaceAll("\"",""),
+                        temp[1].replaceAll("\"",""),
+                        temp[2].replaceAll("\"",""),
+                        temp[3].replaceAll("\"",""));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         w.close();
 
-        // 2. query
-        String querystr = args.length > 0 ? args[0] : "lucene";
 
         // the "title" arg specifies the default field to use
         // when no field is explicitly specified in the query.
-        Query q = new QueryParser("title", analyzer).parse(querystr);
+        Query q = new QueryParser(field, analyzer).parse(query);
 
         // 3. search
         int hitsPerPage = 10;
@@ -57,45 +122,39 @@ public class luceneQkd {
         for(int i=0;i<hits.length;++i) {
             int docId = hits[i].doc;
             Document d = searcher.doc(docId);
-            System.out.println((i + 1) + ". " + d.get("isbn") + "\t" + d.get("title"));
+            System.out.println((i + 1) + ". " + d.get("url"));
         }
 
         // reader can only be closed when there
         // is no need to access the documents any more.
         reader.close();
+        File file = new File("./index");
+        FileUtils.cleanDirectory(file);
     }
 
-    private static void addDoc(IndexWriter w, String title, String isbn) throws IOException {
-        Document doc = new Document();
-        doc.add(new TextField("title", title, Field.Store.YES));
 
-        // use a string field for isbn because we don't want it tokenized
-        doc.add(new StringField("isbn", isbn, Field.Store.YES));
-        w.addDocument(doc);
-    }
-
-    private static void addD(IndexWriter writerD, int dId, int len, int elen, int url) throws IOException {
+    private static void addD(IndexWriter writerD, String dId, String len, String elen, String url) throws IOException {
         Document doc = new Document();
-        doc.add(new IntPoint("dId", dId));
-        doc.add(new IntPoint("len", len));
-        doc.add(new IntPoint("elen", elen));
-        doc.add(new IntPoint("url", url));
+        doc.add(new TextField("dId", dId, Field.Store.YES));
+        doc.add(new TextField("len", len, Field.Store.YES));
+        doc.add(new TextField("elen", elen, Field.Store.YES));
+        doc.add(new TextField("url", url, Field.Store.YES));
         writerD.addDocument(doc);
     }
 
-    private static void addKD(IndexWriter writerKD, int len, int elen, int url) throws IOException {
+    private static void addKD(IndexWriter writerKD, String kId, String dId, String tf) throws IOException {
         Document doc = new Document();
-        doc.add(new IntPoint("len", len));
-        doc.add(new IntPoint("elen", elen));
-        doc.add(new IntPoint("url", url));
+        doc.add(new TextField("kId", kId, Field.Store.YES));
+        doc.add(new TextField("dId", dId, Field.Store.YES));
+        doc.add(new TextField("tf", tf, Field.Store.YES));
         writerKD.addDocument(doc);
     }
 
-    private static void addK(IndexWriter writerK, int len, int elen, int url) throws IOException {
+    private static void addK(IndexWriter writerK, String kId, String value, String idf) throws IOException {
         Document doc = new Document();
-        doc.add(new IntPoint("len", len));
-        doc.add(new IntPoint("elen", elen));
-        doc.add(new IntPoint("url", url));
+        doc.add(new TextField("kId", kId, Field.Store.YES));
+        doc.add(new TextField("value", value, Field.Store.YES));
+        doc.add(new TextField("idf", idf, Field.Store.YES));
         writerK.addDocument(doc);
     }
 }

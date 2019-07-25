@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf17e998-401b-434f-a313-279929a2edaa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/kd.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/CSVtoBinary.class" afterPath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/CSVtoBinary.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/CSVtoByte.class" afterPath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/CSVtoByte.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/relation.class" afterPath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/relation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/structF.class" afterPath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/structF.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/SPJEXECUTION.class" afterPath="$PROJECT_DIR$/out/production/EverythingSearch-Experiment/SPJEXECUTION.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CSVtoBinary.java" afterPath="$PROJECT_DIR$/src/CSVtoBinary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CSVtoByte.java" afterPath="$PROJECT_DIR$/src/CSVtoByte.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SPJEXECUTION.java" afterPath="$PROJECT_DIR$/src/SPJEXECUTION.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/relation.java" afterPath="$PROJECT_DIR$/src/relation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/structF.java" afterPath="$PROJECT_DIR$/src/structF.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,27 +17,27 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="structF.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="structF.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/structF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
+            <state relative-caret-position="443">
               <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SPJEXECUTION.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SPJEXECUTION.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SPJEXECUTION.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="72" column="60" lean-forward="false" selection-start-line="72" selection-start-column="60" selection-end-line="72" selection-end-column="60" />
+            <state relative-caret-position="314">
+              <caret line="174" column="38" lean-forward="false" selection-start-line="174" selection-start-column="38" selection-end-line="174" selection-end-column="38" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#6651#6659#0" expanded="true" />
-                <element signature="e#6754#6763#0" expanded="true" />
-                <element signature="e#6882#6892#0" expanded="true" />
+                <element signature="e#6902#6910#0" expanded="true" />
+                <element signature="e#7047#7056#0" expanded="true" />
+                <element signature="e#7175#7185#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,28 +46,8 @@
       <file leaf-file-name="relation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/relation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="655" column="21" lean-forward="false" selection-start-line="655" selection-start-column="17" selection-end-line="655" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CSVtoBinary.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CSVtoBinary.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9353">
-              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CSVtoByte.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CSVtoByte.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="179">
+              <caret line="616" column="23" lean-forward="false" selection-start-line="616" selection-start-column="16" selection-end-line="616" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -121,6 +93,8 @@
       <find>subRe</find>
       <find>currentPointerCountAndValue</find>
       <find>jump</find>
+      <find>system</find>
+      <find>subRela</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,9 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,6 +201,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -875,12 +849,13 @@
       <workItem from="1563568264700" duration="434000" />
       <workItem from="1563640737096" duration="13419000" />
       <workItem from="1563814299472" duration="540000" />
-      <workItem from="1563911367178" duration="8215000" />
+      <workItem from="1563911367178" duration="9631000" />
+      <workItem from="1564080654198" duration="5207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63620000" />
+    <option name="totallyTimeSpent" value="70243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -895,13 +870,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24931507" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5506849" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2819063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28594506" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -977,6 +952,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/relation.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12445">
+          <caret line="655" column="21" lean-forward="false" selection-start-line="655" selection-start-column="17" selection-end-line="655" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kd.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/luceneQkd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SPJEXECUTION.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="76" column="35" lean-forward="true" selection-start-line="76" selection-start-column="35" selection-end-line="76" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#6902#6910#0" expanded="true" />
+            <element signature="e#7047#7056#0" expanded="true" />
+            <element signature="e#7175#7185#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/structF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/relation.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
           <caret line="434" column="60" lean-forward="false" selection-start-line="434" selection-start-column="60" selection-end-line="434" selection-end-column="60" />
           <folding />
@@ -1022,9 +1043,9 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#6651#6659#0" expanded="true" />
-            <element signature="e#6754#6763#0" expanded="true" />
-            <element signature="e#6882#6892#0" expanded="true" />
+            <element signature="e#6902#6910#0" expanded="true" />
+            <element signature="e#7047#7056#0" expanded="true" />
+            <element signature="e#7175#7185#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1084,9 +1105,9 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#6651#6659#0" expanded="true" />
-            <element signature="e#6754#6763#0" expanded="true" />
-            <element signature="e#6882#6892#0" expanded="true" />
+            <element signature="e#6902#6910#0" expanded="true" />
+            <element signature="e#7047#7056#0" expanded="true" />
+            <element signature="e#7175#7185#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1106,9 +1127,9 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#6651#6659#0" expanded="true" />
-            <element signature="e#6754#6763#0" expanded="true" />
-            <element signature="e#6882#6892#0" expanded="true" />
+            <element signature="e#6902#6910#0" expanded="true" />
+            <element signature="e#7047#7056#0" expanded="true" />
+            <element signature="e#7175#7185#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1152,9 +1173,9 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#6651#6659#0" expanded="true" />
-            <element signature="e#6754#6763#0" expanded="true" />
-            <element signature="e#6882#6892#0" expanded="true" />
+            <element signature="e#6902#6910#0" expanded="true" />
+            <element signature="e#7047#7056#0" expanded="true" />
+            <element signature="e#7175#7185#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1238,14 +1259,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/luceneQkd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tables/kd_yash.csv" />
     <entry file="file://$PROJECT_DIR$/src/blocks.bin">
       <provider selected="true" editor-type-id="text-editor">
@@ -1258,6 +1271,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CSVtoByte.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1270,6 +1290,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/luceneQkd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="131" column="37" lean-forward="false" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/kd.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1278,41 +1306,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CSVtoByte.java">
+    <entry file="file://$PROJECT_DIR$/src/structF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="443">
+          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/relation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="655" column="21" lean-forward="false" selection-start-line="655" selection-start-column="17" selection-end-line="655" selection-end-column="21" />
+        <state relative-caret-position="179">
+          <caret line="616" column="23" lean-forward="false" selection-start-line="616" selection-start-column="16" selection-end-line="616" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SPJEXECUTION.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="72" column="60" lean-forward="false" selection-start-line="72" selection-start-column="60" selection-end-line="72" selection-end-column="60" />
+        <state relative-caret-position="314">
+          <caret line="174" column="38" lean-forward="false" selection-start-line="174" selection-start-column="38" selection-end-line="174" selection-end-column="38" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#6651#6659#0" expanded="true" />
-            <element signature="e#6754#6763#0" expanded="true" />
-            <element signature="e#6882#6892#0" expanded="true" />
+            <element signature="e#6902#6910#0" expanded="true" />
+            <element signature="e#7047#7056#0" expanded="true" />
+            <element signature="e#7175#7185#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/structF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>

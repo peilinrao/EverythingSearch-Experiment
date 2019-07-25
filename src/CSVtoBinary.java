@@ -61,6 +61,13 @@ public class CSVtoBinary extends CSVtoByte{
 	//create MAP.bin and BLOCKS.bin
 	public void createBinaryFile(String filePath) throws IOException
 	{
+		System.out.println("CSVtoBinary");
+		File file = new File(filePath); 
+
+		if (file.exists())
+			file.delete(); //you might want to check if delete was successfull
+
+		file.createNewFile();
 	}
 	
 	public void writeIntoFile(String filePath, String data)
@@ -116,11 +123,16 @@ public class CSVtoBinary extends CSVtoByte{
 		for(int i=0; i<bcols.size();i++)
 		{
 			offset += findByteForBcolsBasedOnIndex(i) + intInBytes + commaInBytes + commaInBytes;
+			offset += findByteForBcolsBasedOnIndex(i) + intInBytes + commaInBytes + commaInBytes;//Since the map and general v and c will take same amount of space.
 //			System.out.println("getTotalSizeOfBlock() findByteForBcolsBasedOnIndex(i): "+findByteForBcolsBasedOnIndex(i));
+			if(bcolsColumnType.get(i)==noOfColumns-1)//If the element belongs to last column then add ';' for executing the subrelation() and isMapEmpty()
+			{
+				offset += commaInBytes + commaInBytes; // for ",;"
+			}
 		}
 //		System.out.println("getTotalSizeOfBlock() function's  offset: "+offset);
 		
-		offset *= 2; //Since the map and general v and c will take same amount of space.
+//		offset *= 2; //Since the map and general v and c will take same amount of space.
 		
 		if(columnDatatypes[0].equals("String"))
 		{
@@ -226,6 +238,11 @@ public class CSVtoBinary extends CSVtoByte{
 			ArrayList dummy2 = new ArrayList();
 			dummy2.add(bcols.get(i));dummy2.add(",");offset -= (commaInBytes);
 			dummy2.add(bcolsFreq.get(i));dummy2.add(",");offset -= (commaInBytes);
+			if(bcolsColumnType.get(i)==noOfColumns-1)//If the element belongs to last column then add ';' for executing the subrelation() and isMapEmpty()
+			{
+				dummy2.add(";");offset -= (commaInBytes);
+				dummy2.add(",");offset -= (commaInBytes);
+			}
 			dummy2.addAll(list); list=dummy2;
 			
 			offset -= (findByteForBcolsBasedOnIndex(i)+intInBytes);
@@ -241,7 +258,7 @@ public class CSVtoBinary extends CSVtoByte{
 	
 	public void displayList(ArrayList list)
 	{
-		System.out.print("List:[");
+		System.out.print("createBlocks()  List:[");
 		for(int i=0 ;i<list.size(); i++)
 		{
 			System.out.print(list.get(i)+"");
@@ -320,8 +337,6 @@ public class CSVtoBinary extends CSVtoByte{
 		String filePath = "src/map.bin";
 		File file = new File(filePath); 
 		
-		createBinaryFile(filePath);
-		
 		if (file.exists())
 		{
 
@@ -347,6 +362,11 @@ public class CSVtoBinary extends CSVtoByte{
 				ex.printStackTrace();
 			}
 		}
+	}
+	
+	public void endMapFileWithMapAndBlockSeperator()
+	{
+		
 	}
 	
 	//Main Algorithm and uses the helper functions above to convert CSV to Block Representations to Binary File
@@ -408,8 +428,8 @@ public class CSVtoBinary extends CSVtoByte{
             						}
             						blocks.add(bcol1Freq);blocks.add(",");
             						blocks.addAll(createBlocks());
-            						blocks.add(" ");offsetCounter += (charInBytes);//The space between each block
-            						blocks.add(",");offsetCounter += (commaInBytes);
+//            						blocks.add(";");offsetCounter += (charInBytes);//The space between each block
+//            						blocks.add(",");offsetCounter += (commaInBytes);
             						//Update BLOCKS.bin
             						System.out.println("performCSVtoBinary() -->" + bcol1 + " " + bcol1Freq + " " + bcols + " " + bcolsFreq);
             						initialise();
@@ -474,6 +494,7 @@ public class CSVtoBinary extends CSVtoByte{
             System.out.println("performCSVtoBinary() bcol1:" +bcol1);
             bcol1Offset = offsetCounter;System.out.println("bcol1Offset:"+bcol1Offset);System.out.println("bcol1:"+bcol1);
             addDataToMap();//Update MAP.bin
+            endMapFileWithMapAndBlockSeperator();//This is done so that consistency remains between the maps.bin and inline maps' ending, which comma and space (, )
             if(columnDatatypes[0].equals("Integer"))
             {
             	blocks.add(Integer.parseInt(bcol1));blocks.add(",");
@@ -484,6 +505,7 @@ public class CSVtoBinary extends CSVtoByte{
 			}
 			blocks.add(bcol1Freq);blocks.add(",");
 			blocks.addAll(createBlocks());
+//			blocks.add(";");offsetCounter += (charInBytes);//The space between each block
 			//Update BLOCKS.bin
 			System.out.println(bcol1 + " " + bcol1Freq + " " + bcols + " " + bcolsFreq);
 			return blocks;

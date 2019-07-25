@@ -46,6 +46,7 @@ public class CSVtoByte {
 	//create MAP.bin and BLOCKS.bin
 	public void createBinaryFile(String filePath) throws IOException
 	{
+		System.out.println("CSVtoByte");
 		File file = new File(filePath); 
 
 		if (file.exists())
@@ -68,7 +69,7 @@ public class CSVtoByte {
 				DataOutputStream dos = new DataOutputStream(outputStream); //DOS because Double can only be loaded into file using this library
 					) 
 			{
-				System.out.print("List:[");
+				System.out.print("writeIntoFile() List:[");
 				for(int i=1; i<blocks.size();i=i+2)
 				{
 //					System.out.println(i+":"+blocks.get(i));
@@ -114,7 +115,7 @@ public class CSVtoByte {
 				) {
 				String value = "";
 				System.out.println();
-				System.out.print("List:[");
+				System.out.print("readFromFile()  List:[");
 				int lengthOfFile = dos.available();
 				while(dos.available()>0)
 				{
@@ -141,6 +142,11 @@ public class CSVtoByte {
 						System.out.print(", ");
 						value = "";
 					}
+					else if(string.equals(";"))
+					{
+							System.out.print(",;");
+							value = "";
+					}
 					else	
 					{
 						value += string;
@@ -155,7 +161,7 @@ public class CSVtoByte {
 	
 	public static void main(String[] args) throws IOException {
 		
-		CSVtoBinary KD = new CSVtoBinary("KD", new String[]{"String", "Integer", "String", "String"}, 4);
+		CSVtoBinary KD = new CSVtoBinary("KD", new String[]{"Integer", "Integer", "String", "String"}, 4);
 		ArrayList blocks = KD.performCSVtoBinary("src/kd.csv");
 		
 		KD.displayList(blocks);

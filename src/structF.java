@@ -19,7 +19,7 @@ public class structF {
 
     public String r1; //Name of the table
     public String i1; //Column Name of the table
-    public String strLookUp; //String interested
+    public Object LookUp; //String interested
 
     //Type 2:
     public int intLookUp; //Int interested
@@ -34,14 +34,14 @@ public class structF {
         this.type = 1;
         this.r1 = r1;
         this.i1 = col;
-        this.strLookUp = str;
+        this.LookUp = str;
     }
 
     structF(String r1, String col, int num){
         this.type = 2;
         this.r1 = r1;
         this.i1 = col;
-        this.intLookUp = num;
+        this.LookUp = num;
     }
 
     structF(String r1, String index1, String r2, String index2){

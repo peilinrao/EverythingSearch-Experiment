@@ -47,15 +47,18 @@ public class SPJEXECUTION {
 
                 if(index != -1){
                     relation temp = this.T.get(index);
-                    if(this.F.get(0).type==2){
-                        temp.jump(this.F.get(0).intLookUp);
-                    }else{
-                        temp.jump(this.F.get(0).strLookUp);
-                    }
 
+                    temp.jump(this.F.get(0).LookUp);
                     if(this.X.contains(temp.columnNames.get(0))){
-                        System.out.println("Adding result:" + temp.distinctValuesOfFirstColumn().get(0));
-                        this.result.add(temp.distinctValuesOfFirstColumn().get(0));
+                        Object val = -1;
+                        for(int j = 0; j < temp.distinctValuesOfFirstColumn().size(); j++){
+                            if(temp.distinctValuesOfFirstColumn().get(j)==this.F.get(0).LookUp){
+                                val = temp.distinctValuesOfFirstColumn().get(j);
+                                break;
+                            }
+                        }
+                        System.out.println("Adding result:"+val);
+                        this.result.add(val);
                     }
 
                     this.F.remove(this.F.get(0));
@@ -184,8 +187,8 @@ public class SPJEXECUTION {
         return this.result;
     }
 
-    public static void main(String[] arg){
-        //Testing
+    public static void test1(){
+        //Test 1: search for one row
         ArrayList<String> X = new ArrayList<String>();
         X.add("kid");
         X.add("did");
@@ -204,7 +207,33 @@ public class SPJEXECUTION {
 
         SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
         System.out.println("Showing result:"+SPJ_d.getResult());
+    }
 
+    public static void test2(){
+        //Test 1: search for one row
+        ArrayList<String> X = new ArrayList<String>();
+        X.add("kid");
+        X.add("did");
+        X.add("tf");
+        X.add("blem");
+
+        ArrayList<structF> F = new ArrayList<structF>();
+        structF F1 = new structF("KD", "kid", 2);
+        F.add(F1);
+
+        ArrayList<relation> T = new ArrayList<relation>(1);
+        relation kdsubrel = new relation();
+        kdsubrel.initialiseRelationFilePath("src/map.bin", "src/blocks.bin");
+        kdsubrel.processMapHeader();
+        T.add(kdsubrel);
+
+        SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
+        System.out.println("Showing result:"+SPJ_d.getResult());
+    }
+
+    public static void main(String[] arg){
+
+        test1();
 
 
     }

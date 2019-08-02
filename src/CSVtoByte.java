@@ -168,7 +168,7 @@ public class CSVtoByte {
 		
 		CSVtoByte kd = new CSVtoByte();
 		
-		String filePath = "src/blocks.bin";
+		String filePath = "src/blocks_kd.bin";
 		kd.createBinaryFile(filePath);
 		kd.writeIntoFile(blocks, filePath);
 		kd.readFromFile(blocks, filePath);

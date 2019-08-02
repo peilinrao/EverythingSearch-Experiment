@@ -31,7 +31,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CSVtoBinary extends CSVtoByte{
-	
+
 	String tableName; 			//Need to passed as parameterized constructor
 	String[] columnDatatypes; 	//Need to passed as parameterized constructor - can be any among the following:"Integer", "Double", "String"
 	int noOfColumns; 			//Need to passed as parameterized constructor
@@ -304,7 +304,7 @@ public class CSVtoBinary extends CSVtoByte{
 	<NoOfColumns 'C' integer><4 byte integer which stores the datatype of the columns. Since, we have the number of columns present, we can just access the rightmost 'C' numbers><Value based on column one's datatype>_<Offset>*/
 	public void generateMap() throws IOException
 	{
-		String filePath = "src/map.bin";
+		String filePath = "src/map_kd.bin";
 		File file = new File(filePath); 
 		
 		createBinaryFile(filePath);
@@ -334,7 +334,7 @@ public class CSVtoBinary extends CSVtoByte{
 	
 	public void addDataToMap() throws IOException
 	{
-		String filePath = "src/map.bin";
+		String filePath = "src/map_kd.bin";
 		File file = new File(filePath); 
 		
 		if (file.exists())

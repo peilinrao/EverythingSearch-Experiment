@@ -38,9 +38,14 @@ public class SPJEXECUTION {
         if(!this.F.isEmpty()){
             System.out.println("Type of first F is: "+this.F.get(0).type);
 
-            // Type 1 means searching for a String, type2 means searching for a Int
-            if(this.F.get(0).type==1 || this.F.get(0).type == 2){
+            // Type 1 means searching for a String
+            // Type 2 means searching for a Int
+            // Type 3 means searching for the row that selects two columns from two tables
 
+            if(this.F.get(0).type==1 || this.F.get(0).type == 2){
+                // Now we are in the situation that we are searching for a String or a Int
+
+                // Step 1: find the table of interest
                 int index;
                 for(index = 0; index < this.T.size(); index++){
                     if(this.T.get(index).relationName.equals(this.F.get(0).r1) ){
@@ -48,9 +53,16 @@ public class SPJEXECUTION {
                     }
                 }
 
+                /* Step 2: if we indeed found the table
+                 * use jump to go to the location of interest
+                 * add append the value of first column we are interested in to the results
+                 * remove the structF from F
+                 * remove that column name from X
+                 * subrelate the table
+                 * and start next sub_SPJEXECUTION
+                 */
                 if(index != -1){
                     relation temp = this.T.get(index);
-
                     temp.jump(this.F.get(0).LookUp);
                     if(this.X.contains(temp.columnNames.get(0))){
                         Object val = -1;
@@ -86,6 +98,12 @@ public class SPJEXECUTION {
                     return null;
                 }
             }else if(this.F.get(0).type==3) {
+
+                /*
+                 * If the F have type 3, which means the selection between two tables
+                 * find the two tables (relations) first
+                 */
+
                 int index1;
                 for (index1 = 0; index1 < this.T.size(); index1++) {
                     if (this.T.get(index1).relationName.split(" ")[0].equals(this.F.get(0).r1)) {
@@ -101,6 +119,14 @@ public class SPJEXECUTION {
                     }
                 }
 
+                /*
+                 * If the two relations exists:
+                 * find the column in relation 2 that satisfies the requirements of that in relation 1
+                 * jump to the val
+                 * append to the results
+                 * create subrelations for both relations
+                 * start next sub-SPJEXECUTION
+                 */
 
                 if (index1 != -1 && index2 != -1) {
                     relation temp1 = this.T.get(index1);
@@ -162,6 +188,13 @@ public class SPJEXECUTION {
             }
 
         }else{
+
+            /* If there is no F left, we just need to append the columns of interest
+             * find the tables that has the column of interest in it
+             * append the first column, subrelate the table
+             * start next sub-SPJEXECUTION
+             */
+
             System.out.println("There is no F");
             System.out.println("X is:"+this.X);
             if(this.T.size()==0 || this.X.size() == 0){
@@ -169,7 +202,7 @@ public class SPJEXECUTION {
                 return null;
             }
 
-            relation temp3 = this.T.get(1);
+            relation temp3 = this.T.get(0);
             System.out.println("Relation temp3 is: "+temp3.relationName);
             if(this.X.size() != 0){
                 if(this.X.contains(temp3.columnNames.get(0))){
@@ -248,8 +281,8 @@ public class SPJEXECUTION {
         table_KD.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
         table_KD.processMapHeader();
 
-        T.add(table_KD);
         T.add(table_D);
+        T.add(table_KD);
 
         SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
         System.out.println("Showing result:"+SPJ_d.getResult());

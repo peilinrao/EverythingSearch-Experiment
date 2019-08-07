@@ -6,6 +6,8 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.*;
+import java.lang.Math;
+
 
 
 // The comment within {} are the psuedo code coresponding to my code
@@ -26,6 +28,11 @@ public class SPJEXECUTION {
     private ArrayList<relation> T;
     private ArrayList<Object> result;
 
+    Runtime rt = Runtime.getRuntime();
+    long total = rt.totalMemory();
+    long free = rt.freeMemory();
+
+
 
     SPJEXECUTION(ArrayList<String> X, ArrayList<structF> F, ArrayList<relation> T){
         this.X = X;
@@ -35,6 +42,7 @@ public class SPJEXECUTION {
     }
 
     ArrayList<Object> getResult(){
+        System.out.println("Memory used:"+(total-free)/1024.0/1024.0+" MB");
         if(!this.F.isEmpty()){
             System.out.println("Type of first F is: "+this.F.get(0).type);
 
@@ -237,7 +245,12 @@ public class SPJEXECUTION {
     }
 
     public static void test1(){
-        //Test 1: search for one row
+        /*Test 1:
+        *
+        * Search for the row satisfies:
+        * 1. KD's kid == 1
+        */
+        long startTime = System.nanoTime();
         ArrayList<String> X = new ArrayList<String>();
         X.add("kid");
         X.add("did");
@@ -256,10 +269,22 @@ public class SPJEXECUTION {
 
         SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
         System.out.println("Showing result:"+SPJ_d.getResult());
+        long endTime = System.nanoTime();
+        System.out.println("Runtime:"+(endTime-startTime)/(Math.pow(10,9))+"s");
     }
 
     public static void test2(){
-        //Test 1: search for one row
+        /*Test 2:
+        *
+        * Search for the row satisfies:
+        * 1. KD's did == D's did
+        * 2. KD's kid = 0
+        */
+
+
+        long startTime = System.nanoTime();
+
+
         ArrayList<String> X = new ArrayList<String>();
         X.add("kid");
         X.add("len");
@@ -286,6 +311,9 @@ public class SPJEXECUTION {
 
         SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
         System.out.println("Showing result:"+SPJ_d.getResult());
+
+        long endTime = System.nanoTime();
+        System.out.println("Runtime:"+(endTime-startTime)/(Math.pow(10,9))+"s");
     }
 
     public static void test3() {
@@ -312,7 +340,7 @@ public class SPJEXECUTION {
     }
 
     public static void main(String[] arg){
-
+        //test1();
         test2();
 
 

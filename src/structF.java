@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import javafx.util.Pair;
+
 /**
  * Created by Peilin on 7/12/19.
  */
@@ -15,18 +18,17 @@
 *
  */
 public class structF {
-    //Type 1:
-
+    //Type 1 or Type 2:
     public String r1; //Name of the table
     public String i1; //Column Name of the table
     public Object LookUp; //String interested
 
-    //Type 2:
-    public int intLookUp; //Int interested
-
     //Type 3:
     public String r2; //Name of the table
     public String i2; //Column Name of the table
+
+    //Type 4:
+    public ArrayList<Pair<String, String>> structFArray;
 
     public int type;
 
@@ -52,12 +54,20 @@ public class structF {
         this.i2 = index2;
     }
 
-    void updateRelation(String r1){
-        this.r1 = r1;
+    structF(){
+        this.type = 4;
+        this.structFArray.clear();
     }
 
-    void updateRelation(String r1, String r2){
-        this.r1 = r1;
-        this.r2 = r2;
+    int add(String r, String index){
+        if(this.type!=4){
+            return -1;
+        }else{
+            Pair<String, String> tempPair= new Pair(r, index);
+            this.structFArray.add(tempPair);
+            return 0;
+        }
+
     }
+
 }

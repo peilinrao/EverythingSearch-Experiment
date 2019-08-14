@@ -54,12 +54,7 @@ public class SPJEXECUTION {
                 // Now we are in the situation that we are searching for a String or a Int
 
                 // Step 1: find the table of interest
-                int index;
-                for(index = 0; index < this.T.size(); index++){
-                    if(this.T.get(index).relationName.equals(this.F.get(0).r1) ){
-                        break;
-                    }
-                }
+                int index = this.F.get(0).r1;
 
                 /* Step 2: if we indeed found the table
                  * use jump to go to the location of interest
@@ -91,6 +86,7 @@ public class SPJEXECUTION {
                     for(count = 0; count < this.T.size(); count++){
                         if(this.T.get(count).relationName.equals(temp.relationName)){
                             this.T.get(count).subRelation();
+                            System.out.println(this.T.get(count).distinctValuesOfFirstColumn());
                         }
                     }
 
@@ -112,20 +108,8 @@ public class SPJEXECUTION {
                  * find the two tables (relations) first
                  */
 
-                int index1;
-                for (index1 = 0; index1 < this.T.size(); index1++) {
-                    if (this.T.get(index1).relationName.split(" ")[0].equals(this.F.get(0).r1)) {
-                        break;
-
-                    }
-                }
-
-                int index2;
-                for (index2 = 0; index2 < this.T.size(); index2++) {
-                    if (this.T.get(index2).relationName.split(" ")[0].equals(this.F.get(0).r2)) {
-                        break;
-                    }
-                }
+                int index1 = this.F.get(0).r1;
+                int index2 = this.F.get(0).r2;
 
                 /*
                  * If the two relations exists:
@@ -143,16 +127,30 @@ public class SPJEXECUTION {
 
                     System.out.println("Starting selection between: "+temp1.relationName+" for column "+this.F.get(0).i1 +" and "+temp2.relationName+" for column "+this.F.get(0).i2);
 
+                    while(!temp1.columnNames.get(0).equals(this.F.get(0).i1)){
+                        System.out.println("Subrelating temp1");
+                        temp1.subRelation();
+                    }
 
-                    int val = Integer.parseInt((String)temp1.distinctValuesOfFirstColumn().get(0));
-                    System.out.println(val);
                     while(!temp2.columnNames.get(0).equals(this.F.get(0).i2)){
-                        System.out.println("Subrelate temp2");
+                        System.out.println("Subrelating temp2");
                         temp2.subRelation();
                     }
-                    temp2.jump(val);
 
-                    System.out.println("TEST: "+temp2.distinctValuesOfFirstColumn());
+                    ArrayList<Object> temp_list = temp1.distinctValuesOfFirstColumn();
+                    for(int i = 0; i < temp_list.size(); i++){
+                        Object val = temp_list.get(i);
+                        temp2.jump(val);
+                        if(temp2.currentPointerCountAndValue() != null){
+                            if (temp2.currentPointerCountAndValue().get(0).equals( val)) {
+                                System.out.println("found common for " + temp_list.get(i));
+                                break;
+                            }
+                        }
+                        temp2.resetPointer();
+                    }
+
+
 
                     if (this.X.contains(temp1.columnNames.get(0))) {
                         System.out.println("CP1!Adding to result...");
@@ -165,16 +163,8 @@ public class SPJEXECUTION {
                         this.result.add(temp2.distinctValuesOfFirstColumn().get(0));
                     }
 
-                    int count;
-                    for (count = 0; count < this.T.size(); count++) {
-                        if (this.T.get(count).relationName.split(" ")[0].equals(temp1.relationName.split(" ")[0])) {
-                            this.T.get(count).subRelation();
-                            System.out.println("Creating subrelation for table: "+this.T.get(count).relationName.split(" ")[0]);
-                        } else if (this.T.get(count).relationName.split(" ")[0].equals(temp2.relationName.split(" ")[0])) {
-                            this.T.get(count).subRelation();
-                            System.out.println("Creating subrelation for table: "+this.T.get(count).relationName.split(" ")[0]);
-                        }
-                    }
+                    temp1.subRelation();
+                    temp2.subRelation();
 
                     this.F.remove(this.F.get(0));
                     SPJEXECUTION SPJ_dd = new SPJEXECUTION(this.X, this.F, this.T);
@@ -210,8 +200,9 @@ public class SPJEXECUTION {
                 return null;
             }
 
-            relation temp3 = this.T.get(0);
+            relation temp3 = this.T.get(1);
             System.out.println("Relation temp3 is: "+temp3.relationName);
+            System.out.println("temp3's content is: "+temp3.distinctValuesOfFirstColumn());
             if(this.X.size() != 0){
                 if(this.X.contains(temp3.columnNames.get(0))){
                     System.out.println("Adding result: " + temp3.distinctValuesOfFirstColumn().get(0));
@@ -258,7 +249,7 @@ public class SPJEXECUTION {
         X.add("blem");
 
         ArrayList<structF> F = new ArrayList<structF>();
-        structF F1 = new structF("KD", "kid", 1);
+        structF F1 = new structF(0, "kid", 1);
         F.add(F1);
 
         ArrayList<relation> T = new ArrayList<relation>(1);
@@ -292,8 +283,8 @@ public class SPJEXECUTION {
         X.add("url");
 
         ArrayList<structF> F = new ArrayList<structF>();
-        structF F1 = new structF("KD", "value", "D", "did");
-        structF F2 = new structF("KD", "kid", 0);
+        structF F1 = new structF(1, "value", 0, "did");
+        structF F2 = new structF(1, "kid", 0);
         F.add(F2);
         F.add(F1);
 
@@ -301,12 +292,11 @@ public class SPJEXECUTION {
         relation table_D = new relation();
         table_D.initialiseRelationFilePath("src/map_d.bin", "src/blocks_d.bin");
         table_D.processMapHeader();
+        T.add(table_D);
 
         relation table_KD = new relation();
         table_KD.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
         table_KD.processMapHeader();
-
-        T.add(table_D);
         T.add(table_KD);
 
         SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
@@ -317,31 +307,106 @@ public class SPJEXECUTION {
     }
 
     public static void test3() {
-        ArrayList<relation> T = new ArrayList<relation>(1);
-        relation table_D = new relation();
-        table_D.initialiseRelationFilePath("src/map_d.bin", "src/blocks_d.bin");
-        table_D.processMapHeader();
-        System.out.println("TEST: "+ table_D.distinctValuesOfFirstColumn());
-        System.out.println(table_D.currentPointerCountAndValue());
-        table_D.next();
-        System.out.println(table_D.currentPointerCountAndValue());
-        table_D.subRelation();
-        System.out.println(table_D.distinctValuesOfFirstColumn());
+        //Experiment 1
 
-        relation table_KD = new relation();
-        table_KD.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
-        table_KD.processMapHeader();
-        System.out.println("TEST: "+ table_KD.distinctValuesOfFirstColumn());
-        System.out.println(table_KD.currentPointerCountAndValue());
-        table_KD.next();
-        System.out.println(table_KD.currentPointerCountAndValue());
-        table_KD.subRelation();
-        System.out.println(table_KD.distinctValuesOfFirstColumn());
+        long startTime = System.nanoTime();
+
+        ArrayList<relation> T = new ArrayList<relation>(1);
+//        relation table_K1 = new relation();
+//        table_K1.initialiseRelationFilePath("src/map_k.bin", "src/blocks_k.bin");
+//        table_K1.processMapHeader();
+//        T.add(table_K1);
+//        relation table_K1_D = new relation();
+//        table_K1_D.initialiseRelationFilePath("src/map_k.bin", "src/blocks_k.bin");
+//        table_K1_D.processMapHeader();
+//        T.add(table_K1_D);
+        relation table_KD1 = new relation();
+        table_KD1.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
+        table_KD1.processMapHeader();
+        T.add(table_KD1);
+        relation table_K2 = new relation();
+        table_K2.initialiseRelationFilePath("src/map_k.bin", "src/blocks_k.bin");
+        table_K2.processMapHeader();
+        T.add(table_K2);
+        relation table_KD2 = new relation();
+        table_KD2.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
+        table_KD2.processMapHeader();
+        T.add(table_KD2);
+        relation table_D1 = new relation();
+        table_D1.initialiseRelationFilePath("src/map_d.bin", "src/blocks_d.bin");
+        table_D1.processMapHeader();
+        T.add(table_D1);
+
+        ArrayList<String> X = new ArrayList<String>();
+        X.add("idf");
+
+        ArrayList<structF> F = new ArrayList<structF>();
+        structF F1 = new structF(0, "kid", 1, "kid");   F.add(F1);
+        structF F5 = new structF(0, "value", "transferred");    F.add(F5);
+//        structF F2 = new structF(2, "kid", 3, "kid");   F.add(F2);
+//        structF F6 = new structF(2, "value", "patients");       F.add(F6);
+//        structF F3 = new structF(1, "value", 3, "value");   F.add(F3);
+//        structF F4 = new structF(3, "value", 4, "did");   F.add(F4);
+
+
+
+        SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
+        System.out.println("Showing result:"+SPJ_d.getResult());
+
+        long endTime = System.nanoTime();
+        System.out.println("Runtime:"+(endTime-startTime)/(Math.pow(10,9))+"s");
+
     }
 
+    public static void test4() {
+        //Experiment 1
+
+        long startTime = System.nanoTime();
+
+        ArrayList<relation> T = new ArrayList<relation>(1);
+
+
+        relation table_KD1 = new relation();
+        table_KD1.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
+        table_KD1.processMapHeader();
+        T.add(table_KD1);
+
+        relation table_KD2 = new relation();
+        table_KD2.initialiseRelationFilePath("src/map_kd.bin", "src/blocks_kd.bin");
+        table_KD2.processMapHeader();
+        T.add(table_KD2);
+
+        relation table_D1 = new relation();
+        table_D1.initialiseRelationFilePath("src/map_d.bin", "src/blocks_d.bin");
+        table_D1.processMapHeader();
+        T.add(table_D1);
+
+        relation table_D2 = new relation();
+        table_D2.initialiseRelationFilePath("src/map_d.bin", "src/blocks_d.bin");
+        table_D2.processMapHeader();
+        T.add(table_D2);
+
+        ArrayList<String> X = new ArrayList<String>();
+        X.add("idf");
+
+        ArrayList<structF> F = new ArrayList<structF>();
+        structF F1 = new structF(0, "kid", 7267);   F.add(F1);
+        structF F2 = new structF(1, "kid", 13560); F.add(F2);
+        structF F3 = new structF(0, "value", 1, "value"); F.add(F3);
+
+
+        SPJEXECUTION SPJ_d = new SPJEXECUTION(X, F, T);
+        System.out.println("Showing result:"+SPJ_d.getResult());
+
+        long endTime = System.nanoTime();
+        System.out.println("Runtime:"+(endTime-startTime)/(Math.pow(10,9))+"s");
+
+    }
+
+
     public static void main(String[] arg){
-        //test1();
-        test2();
+        test4();
+
 
 
     }

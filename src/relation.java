@@ -620,7 +620,7 @@ public class relation {
 //		if(!inLine)
 		if(noOfColumns>1)
 		{
-			System.out.println("<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>.");
+//			System.out.println("<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>.");
 			changesForMapInline(findNewMapStartForSubRelation());
 //			findCurrentOffset(35, blocksFilePath);
 		}

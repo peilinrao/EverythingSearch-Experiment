@@ -19,12 +19,12 @@ import javafx.util.Pair;
  */
 public class structF {
     //Type 1 or Type 2:
-    public String r1; //Name of the table
+    public int r1; //index of the table
     public String i1; //Column Name of the table
     public Object LookUp; //String interested
 
     //Type 3:
-    public String r2; //Name of the table
+    public int r2; //Name of the table
     public String i2; //Column Name of the table
 
     //Type 4:
@@ -32,21 +32,21 @@ public class structF {
 
     public int type;
 
-    structF(String r1, String col, String str){
+    structF(int r1, String col, String str){
         this.type = 1;
         this.r1 = r1;
         this.i1 = col;
         this.LookUp = str;
     }
 
-    structF(String r1, String col, int num){
+    structF(int r1, String col, int num){
         this.type = 2;
         this.r1 = r1;
         this.i1 = col;
         this.LookUp = num;
     }
 
-    structF(String r1, String index1, String r2, String index2){
+    structF(int r1, String index1, int r2, String index2){
         this.type = 3;
         this.r1 = r1;
         this.i1 = index1;
